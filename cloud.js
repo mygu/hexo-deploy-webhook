@@ -2,9 +2,8 @@ var AV = require('leanengine');
 var handler = require('./public/js/handler');
 
 /**
- * 一个简单的云代码方法
+ * Hexo博客发布后触发自动编译部署的钩子程序
  */
 AV.Cloud.define('hook', function (request) {
-    handler();
-    return 'success';
+    return handler();
 });
