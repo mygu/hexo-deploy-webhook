@@ -6,7 +6,5 @@ var handler = require('./public/js/handler');
  */
 AV.Cloud.define('hook', function (req, res) {
     handler();
-    res.status(200).json({
-        message: 'success'
-    });
+    res.success();
 });
