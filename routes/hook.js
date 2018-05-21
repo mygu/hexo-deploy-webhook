@@ -6,7 +6,7 @@ var handler = require('../public/js/handler');
 /**
  * Hexo博客发布后触发自动编译部署的钩子程序
  */
-router.get('/', function (req, res, next) {
+router.post('/', function (req, res, next) {
     handler();
 
     res.status(200).json({
