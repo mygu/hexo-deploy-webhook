@@ -42,6 +42,10 @@ var NPM_REPOSITORY = process.env.NPM_REPOSITORY || 'https://registry.npm.taobao.
 // var OS_PLATFORM = process.env.OS_PLATFORM || os.platform(); // 操作系统平台，'darwin', 'freebsd', 'linux', 'sunos' , 'win32'
 
 function handler() {
+    setTimeout(function () {
+        console.log('延时10秒唤醒');
+    }, 10000);
+
     fs.readFile('./test.txt', 'utf8', function (err, data) {
         console.log(data);
     });
