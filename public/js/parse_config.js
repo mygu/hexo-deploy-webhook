@@ -30,19 +30,23 @@ module.exports = function (args) {
     var repo = args.repo || args.repository;
     if (!repo) throw new TypeError('repo is required!');
 
-    if (typeof repo === 'string') {
-        var data = parseRepo(repo);
-        data.branch = args.branch || data.branch;
-
-        return [data];
-    }
-
     var result = [];
-    var keys = Object.keys(repo);
 
-    for (var i = 0, len = keys.length; i < len; i++) {
-        result.push(parseRepo(repo[keys[i]]));
+    if (typeof repo === 'string') {
+        var multiRepo = repo.split(';');
+        for (var i = 0, len = multiRepo.length; i < len; i++) {
+            if (multiRepo[i]) {
+                var data = parseRepo(multiRepo[i]);
+                data.branch = args.branch || data.branch;
+                result.push(data);
+            }
+        }
+    } else {
+        var keys = Object.keys(repo);
+
+        for (var i = 0, len = keys.length; i < len; i++) {
+            result.push(parseRepo(repo[keys[i]]));
+        }
     }
-
     return result;
 };
