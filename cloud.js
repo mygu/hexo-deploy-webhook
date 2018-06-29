@@ -9,7 +9,7 @@ AV.Cloud.define('hook', function (req, res) {
 
     setTimeout(function () {
         handler();
-    }, 10000);
+    }, 30000);
 
     res.success();
 });

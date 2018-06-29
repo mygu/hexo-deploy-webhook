@@ -62,7 +62,7 @@ function handler() {
             'verbose': false
         });
     }).then(function () {
-        console.log('3.设置npm仓库使用国内镜像');
+        console.log('3.设置npm仓库镜像（默认使用国内淘宝镜像）');
         return npm('config', 'set', 'registry', NPM_REPOSITORY);
     }).then(function () {
         console.log('4.安装hexo-cli');
