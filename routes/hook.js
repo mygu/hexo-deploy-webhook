@@ -7,11 +7,11 @@ var handler = require('../public/js/handler');
  * Hexo博客发布后触发自动编译部署的钩子程序
  */
 router.post('/', function (req, res, next) {
-    console.log('延时30秒唤醒');
+    console.log('即将执行自动编译部署程序');
 
     setTimeout(function () {
         handler();
-    }, 30000);
+    }, 10000);
 
     res.status(200).json({
         message: 'success'
@@ -21,12 +21,12 @@ router.post('/', function (req, res, next) {
 /**
  * 手动触发
  */
-router.get('/testHook', function (req, res, next) {
-    console.log('延时30秒唤醒');
+router.get('/testDeploy', function (req, res, next) {
+    console.log('即将执行自动编译部署程序');
 
     setTimeout(function () {
         handler();
-    }, 30000);
+    }, 10000);
 
     res.status(200).json({
         message: 'success'
